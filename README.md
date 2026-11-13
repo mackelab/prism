@@ -7,8 +7,6 @@ This repository supports diffusion MRI and symbolic regression.
 
 [Paper](https://arxiv.org/abs/2603.15292) · [Documentation](docs/index.md) · [Run the experiments](#run-the-experiments) · [Reproduce the paper](#reproduce-the-paper)
 
-**Responsible person:** [@shanzi-bao](https://github.com/shanzi-bao)
-
 ## Install
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
