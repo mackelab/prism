@@ -189,7 +189,7 @@ The core `prism` packages never import `prism.dmri` or `prism.symbolic`;
 To use a new simulator, prior or dataset, start with the
 [symbolic guide](docs/guides/symbolic.md#adapt-the-simulator-prior-or-training-data)
 and [simulator API](docs/reference/simulators.md).
-For development and test commands, see [CONTRIBUTING.md](CONTRIBUTING.md).
+For development and test commands, see the [development guide](docs/development.md).
 
 ## Sources
 
