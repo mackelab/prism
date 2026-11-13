@@ -1,5 +1,5 @@
 # @package _global_
-# Figure 4b settings from mackelab/sbmi_transformer_symbolic at c8e118b.
+# Figure 4b settings.
 # Tracking is opt-in: for W&B, set tracking.enabled=true and
 # tracking.wandb.entity/project explicitly.
 defaults:

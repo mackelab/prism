@@ -31,8 +31,7 @@ input. Figure 4c samples `lambda` from `Beta(1, 1)` during training and passes
 it to a prior-conditioned head. Expressions are sampled with Bernoulli
 probability `lambda`, with one uniformly chosen expression forced active;
 exactly one noise alternative is selected. Larger `lambda` therefore favors
-more expressions. The source calls its K=15 scaling preset `symbolic20_v3`;
-it has 15 expressions and is exposed here as `symbolic15`.
+more expressions. The K=15 scaling preset has 15 expressions and is exposed as `symbolic15`.
 
 ## Train
 

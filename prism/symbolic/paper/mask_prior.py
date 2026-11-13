@@ -1,6 +1,6 @@
 """The empirical model-mask distribution used for Figure 4b.
 
-Adapted from mackelab/sbmi_transformer_symbolic (MIT), c8e118b8. The order
+Adapted from mackelab/sbmi_transformer_symbolic (MIT). The order
 and multiplicity of the stored rows are part of the sampling distribution.
 """
 
@@ -43,7 +43,7 @@ class SymbolicMaskPrior(MaskPrior):
         return None
 
     def log_prob_model_mask(self, model_mask, hyperparameters=None):
-        """Preserve the frozen source's lookup score, not duplicate-adjusted mass.
+        """Preserve the original lookup score, not duplicate-adjusted mass.
 
         Figure 4b uses only sampling from this prior. This legacy score assigns
         1/N to a supported mask even when the table contains repeated rows.

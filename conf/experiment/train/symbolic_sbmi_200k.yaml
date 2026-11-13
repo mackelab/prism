@@ -1,5 +1,5 @@
 # @package _global_
-# Source c8e118b used an eight-hour H100 allocation with a 72-hour internal
+# The original run used an eight-hour H100 allocation with a 72-hour internal
 # limit. The existing reproduction uses a graceful eight-hour training stop;
 # equal wall time on another GPU is not an equal compute budget.
 defaults:

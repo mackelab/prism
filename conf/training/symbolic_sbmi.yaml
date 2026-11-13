@@ -1,7 +1,7 @@
 inner_steps: 500
 checkpoint_freq: 2000
 eval_freq: 2000
-# The source saves the terminal checkpoint and exits before validation.
+# As in the original runs, the terminal checkpoint is saved without a final validation.
 eval_at_end: false
 continue_training: false
 partial_restore: false

@@ -11,12 +11,11 @@ the same error for perfectly uniform PITs shown in gray.
 | --- | --- |
 | `plot.py` | aggregates the stored evaluation archives and draws the figure |
 
-Source: `figures/fig2/scaling.ipynb` in the private symbolic source repository
-(`mackelab/sbmi_transformer_symbolic`, commit `c8e118b8`).
+The figure follows the scaling analysis of the original symbolic code.
 
 **Status.** Only plotting and aggregation are packaged. The evaluation archives it
 reads (`eval_pred_error_*`, `eval_ksd_*`, `eval_coverage_*`; about 200 MB) came from
-evaluators that are not ported here, and the archives themselves are not published.
+evaluators that are not included here, and the archives themselves are not published.
 The Fig 4c evaluator in [`model_space_scaling`](../model_space_scaling/README.md)
 computes the rRMSE quantity for K=15/30/50 only.
 

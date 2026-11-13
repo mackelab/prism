@@ -368,8 +368,7 @@ def test_run_records_current_provenance_and_uses_only_explicit_wandb_destination
         assert len(sources[f"_shared/{name}.py"]) == 64
     assert protocol["source_commit"] == source_git["commit"]
     assert protocol["source_git"] == source_git
-    assert protocol["source_commit"] != protocol["original_core_commit"]
-    assert protocol["figure_source_commit"] == runner.FIGURE_SOURCE_COMMIT
+    assert "original_core_commit" not in protocol
     if enable_wandb:
         assert len(calls) == 1
         assert calls[0]["entity"] == "research-team"

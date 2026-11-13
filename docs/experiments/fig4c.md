@@ -25,7 +25,7 @@ for full settings.
 ## Evaluation
 
 K=15/30/50 checkpoints are supported. Defaults retain latest EMA, 64 diffusion
-steps, the 500-point grid, and 1,048,576 evaluation datasets. The source's
+steps, the 500-point grid, and 1,048,576 evaluation datasets. The original
 five-checkpoint random-key split is preserved when evaluating a single model.
 JSON and NPZ outputs include predictive and baseline errors, bootstrap results,
 checkpoint information, configuration differences and source hashes.
@@ -54,9 +54,8 @@ required. Reduced runs check execution, not the full paper result.
 
 ## Source
 
-The implementation follows `figures/fig2/eval_pred_error.py` and the aggregation
-in `figures/fig2/scaling.ipynb` from symbolic source
-`c8e118b8bd557f2b001812f00af982b136f0d793`. See the
+The implementation follows the prediction-error evaluation and aggregation of
+the original symbolic code. See the
 [symbolic guide](../guides/symbolic.md). The former
 `python examples/eval_symbolic_scaling.py ...` entry point has been removed;
 use the module command in the recipe with the same arguments.

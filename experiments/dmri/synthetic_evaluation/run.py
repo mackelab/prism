@@ -1,8 +1,6 @@
 """Evaluate a public dMRI checkpoint with synthetic SBC and relative KSD.
 
-Ported from the validated standalone ``experiments/dmri_fig6`` workflow using
-prism c02ebcee45b638718030f173d1fbf0764b292cbd. Scientific statistics follow
-the frozen dMRI figure source f363a66b1a002c316024bf5c5d11233a90c5319f.
+The scientific statistics follow the Figure 6 analysis in ``mackelab/dmri``.
 """
 
 from __future__ import annotations
@@ -30,8 +28,6 @@ from experiments.dmri._shared.plotting import plots
 from experiments.dmri._shared.storage import digest, source_provenance, write_json
 from prism.utils.slurm import add_slurm_arguments, submit
 
-ORIGINAL_CORE_COMMIT = "c02ebcee45b638718030f173d1fbf0764b292cbd"
-FIGURE_SOURCE_COMMIT = "f363a66b1a002c316024bf5c5d11233a90c5319f"
 REVISION = "017561ffbf77b109c9fe6c3d9c7d48831780ddc3"
 
 
@@ -212,8 +208,6 @@ def main(argv=None):
     protocol = {
         "source_commit": commit,
         "source_git": source_git,
-        "original_core_commit": ORIGINAL_CORE_COMMIT,
-        "figure_source_commit": FIGURE_SOURCE_COMMIT,
         "checkpoint_revision": REVISION,
         "checkpoint": checkpoint_info,
         "arguments": {

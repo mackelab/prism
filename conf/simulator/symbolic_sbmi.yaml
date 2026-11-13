@@ -1,4 +1,4 @@
-# Figure 4b from symbolic/add-networks c8e118b8.
+# Figure 4b simulator.
 model_class: prism.symbolic.paper.model_specs.SymbolicModelV0
 posterior_score: false
 observation_format: signal_blocks

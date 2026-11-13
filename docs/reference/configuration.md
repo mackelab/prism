@@ -9,10 +9,9 @@ and checkpoint workflows.
 ## Configuration sources and compatibility
 
 The dMRI configuration tree comes from
-[`mackelab/dmri` at `24c6373`](https://github.com/mackelab/dmri/tree/24c6373ea0088719159a6e200c642ba5149b7367/conf).
-PRISM Clean adapted its execution defaults and fixed preset composition. The
-Figure 4b and K=15/30/50 symbolic presets were ported from
-[`sbmi_transformer_symbolic` at `c8e118b`](https://github.com/mackelab/sbmi_transformer_symbolic/tree/c8e118b8bd557f2b001812f00af982b136f0d793/conf);
+[`mackelab/dmri`](https://github.com/mackelab/dmri).
+PRISM adapted its execution defaults and fixed preset composition. The
+Figure 4b and K=15/30/50 symbolic presets follow the original symbolic code;
 the small `symbolic` polynomial preset is an integration example.
 
 Configs name classes by import path: core classes under `prism.nn` and
@@ -27,9 +26,9 @@ queues; convolved `2gpus` presets request two GPUs. To evaluate an
 existing checkpoint, let the loader rebuild its architecture and simulator
 from the saved configuration. Preserve that configuration when resuming.
 
-An upstream-derived preset does not identify the weights or complete settings
+A preset derived from the original code does not identify the weights or complete settings
 used for a paper figure. See the [B3S preset notes](experiments.md#ball-and-sticks)
-and [paper checkpoint and result records](../paper_experiments.md#checkpoints-and-saved-source-results)
+and [published weights](../paper_experiments.md#published-weights)
 before selecting a reproduction recipe.
 
 ## Inspect a configuration

@@ -3,7 +3,7 @@
 It uses only the simulator interface (component lists, parameter splits and
 masks). Figure 4b variants in :mod:`prism.symbolic.paper.tokenizer` reuse these
 operations while preserving their original RNG stream and configuration tokens.
-Adapted from mackelab/sbmi_transformer_symbolic (MIT), c8e118b.
+Adapted from mackelab/sbmi_transformer_symbolic (MIT).
 """
 
 from abc import ABC, abstractmethod

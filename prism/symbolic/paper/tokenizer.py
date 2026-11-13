@@ -27,14 +27,14 @@ class SymbolicPaperTokenizer(GenericSymbolicTokenizer):
 
     @staticmethod
     def _pad_token_key(rngs: nnx.Rngs) -> Array:
-        # Keep the source stream, even though the zero initializer ignores its key.
+        # Keep the original RNG stream, even though the zero initializer ignores its key.
         return rngs.next()
 
     @staticmethod
     def _validate_component_indices(
         model_idx: Sequence[int] | None, noise_idx: Sequence[int] | None
     ) -> None:
-        # The frozen symbolic source accepts and ignores subset-selection kwargs.
+        # The original implementation accepts and ignores subset-selection kwargs.
         pass
 
     def embed_cfgs(self, model_mask: ArrayLike, **_: Any) -> Array:

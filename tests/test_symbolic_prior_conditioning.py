@@ -1,4 +1,4 @@
-"""Lambda-conditioned head regression against frozen symbolic source c8e118b8.
+"""Lambda-conditioned head regression against the original symbolic code.
 
 The source decoder was evaluated with the already source-checked symbolic
 tokenizer and an analytic causal prior. Parameter perturbations expose gradients

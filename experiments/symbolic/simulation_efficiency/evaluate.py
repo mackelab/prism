@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Evaluate one PRISM checkpoint the way Figure 4b (SBMI comparison) does.
 
-Replicates cells 5-7 of figures/fig2/sbmi_comp_fig.ipynb for a single run:
+Replicates the original Figure 4b evaluation for a single run:
 load the checkpoint (EMA params), draw `--num-samples` synthetic datasets from the
 run's own simulator, sample a model mask and parameters from the network, simulate
 the prediction, and report the RMSE against the observed data. The number reported
-in the paper is this RMSE minus the noise floor `rmse_gt_mean` = 15.8048 stored in
-figures/fig2/rmse_n_training_big_v2.pkl.
+in the paper is this RMSE minus the noise floor `rmse_gt_mean` = 15.8048 stored with the original
+Figure 4b results.
 
 Usage (from the repo root):
     uv run python -m experiments.symbolic.simulation_efficiency.evaluate results/symbolic_sbmi_10k --fig4b-point 10k \
@@ -181,7 +181,7 @@ def validate_fig4b(cfg, point, completed_step):
 
 
 def training_log_paths(run_dir):
-    """Locate current single-run/multirun logs and retained upstream logs."""
+    """Locate current single-run/multirun logs and logs kept from the original runs."""
     root = Path(run_dir)
     files = set()
     for name in ("train_script.log", "hydra_script.log"):

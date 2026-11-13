@@ -43,15 +43,15 @@ scoring 200 masks) is a GPU job; lower `--num-per-class` for a diagnostic. Use
 
 Reported metrics: `top1_micro` (overall accuracy), `top5_micro` (true class among the
 five most probable, per sample), `top5_macro` (per class: its own samples' five most
-frequent predictions contain it; ties are broken by class index as in the source, which can count
+frequent predictions contain it; ties are broken by class index as in the original, which can count
 a class that was never predicted as a hit when its samples spread over fewer than five classes), macro precision, recall and F1. Macro recall equals
 `top1_macro`.
 
-## Comparison with the stored source results
+## Comparison with the stored original results
 
-The source repository stores `metrics_{20,30,50,80,100}.json` (K=15…100, EMA
+The original evaluation stored `metrics_{20,30,50,80,100}.json` (K=15…100, EMA
 weights; whether best or latest is not recorded). Evaluating the published
-`latest` EMA weights with this port at 100 observations per class (about 20,000
+`latest` EMA weights with this implementation at 100 observations per class (about 20,000
 predictions, standard error about 0.3 points on accuracy) against those files and
 Table 1 of the paper:
 
@@ -69,16 +69,16 @@ Table 1 are **not** reproduced by the stored files: the Top-1 row for K=30 (0.73
 K=80 (0.560) differ from the stored 0.742 and 0.548, and the Top-5 row mixes the
 per-sample value (K=15) and the per-class value (K=30, K=100) and has values for K=50 and
 K=80 (0.995, 0.940) that match neither. The paper's macro precision, recall and F1 rows do match the
-stored files to three decimals (this port is within about 0.01 of them at 20,000 predictions). The `best` weights agree with `latest` to within sampling
+stored files to three decimals (this implementation is within about 0.01 of them at 20,000 predictions). The `best` weights agree with `latest` to within sampling
 error at K=15 (checked; the other sizes were evaluated with `latest` only), so this check does not tell which
-selection the source used.
+selection the original evaluation used.
 
-## Differences from the source scripts
+## Differences from the original scripts
 
 - EMA weights are required (no fall-back to raw parameters).
 - Checkpoint loading, simulators and slurm submission go through `prism`;
   the simulator keyword is `mask_prior_hyperparameter`.
-- `metrics.py` is checked against the frozen source functions on a seeded problem
+- `metrics.py` is checked against the original functions on a seeded problem
   (`tests/fixtures/symbolic_classification_source.*`). The data set construction is kept,
   including that the 1000 initial prior draws stay in the evaluation set.
 - `table.py` and `plot.py` replace notebook cells (similarity order and layout unchanged).

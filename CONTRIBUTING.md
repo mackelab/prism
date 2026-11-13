@@ -8,7 +8,7 @@ Responsible maintainer: [@shanzi-bao](https://github.com/shanzi-bao).
 - Keep changes focused so reviewers can distinguish restructuring from behavior changes.
 - Verify new numerical code on synthetic data with known ground truth, or a
   previously analyzed reference input, before applying it to unfamiliar data.
-- Preserve upstream licenses, attribution, and source revision records on import.
+- Preserve upstream licenses and attribution on import.
 - Keep credentials, private datasets, checkpoints, and generated outputs out of Git.
 
 ## Verification

@@ -90,7 +90,7 @@ models should use the core components above.
       show_root_heading: true
       show_root_full_path: false
 
-Figure presets use `SymbolicPaperTokenizerPP`, which retains the source's
+Figure presets use `SymbolicPaperTokenizerPP`, which retains the original's
 shifted mask embeddings and initialization conventions.
 
 ::: prism.symbolic.paper.tokenizer

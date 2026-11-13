@@ -9,7 +9,7 @@ from probjax.nn.layers.attention import flex_attention
 from probjax.utils.typing import Array, ArrayLike, DTypeLike, PrecisionLike
 
 
-# Adapted from mackelab/sbmi_transformer_symbolic (MIT), c8e118b.
+# Adapted from mackelab/sbmi_transformer_symbolic (MIT).
 @dataclass
 class TransformerEmbeddingConfig:
     input_dim: int = 1

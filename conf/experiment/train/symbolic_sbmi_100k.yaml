@@ -1,5 +1,5 @@
 # @package _global_
-# Source c8e118b; allow 24 hours to finish the 500,000-step cap on A100.
+# Allow 24 hours to finish the 500,000-step cap on A100.
 defaults:
   - symbolic_sbmi
   - _self_
@@ -11,10 +11,9 @@ hydra:
 run:
   name: symbolic_sbmi_100k
 
-# The 100k checkpoint has six model-selection layers. Its recorded sweep
-# overrides (results/symbolic_sbmi_100k/2026-01-09_11-41-29/multirun.yaml) set
-# inference 4 and selection 6, although the preset in the source at c8e118b
-# says 4 for both.
+# The 100k checkpoint has six model-selection layers: its recorded sweep
+# overrides set inference 4 and selection 6, although the original preset says
+# 4 for both.
 model:
   model_selection_net:
     params:

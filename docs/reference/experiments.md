@@ -43,7 +43,7 @@ typical/random acquisition probabilities are 0.5/0.5 and 0.8/0.2.
 Unless a difference is listed below, they use online `SimulationDataset` data,
 CPU simulation in batches of 2,048, a 524,288-example buffer, training batches
 of 2,048, RAdam at `1e-4`, no learning-rate scheduler, EMA decay 0.999, and a
-70-hour limit with no step cap (72 hours in the source; lowered so training stops
+70-hour limit with no step cap (72 hours originally; lowered so training stops
 before the 72-hour scheduler limit). Checkpoints and validation are scheduled every
 20,000 and 40,000 steps. Both loss weights are 1; loss masking is enabled,
 complexity weighting and component permutation are disabled.
@@ -79,7 +79,7 @@ preset is not included here. The current `b3s_2_4_6_128` preset is a PP recipe;
 `msb3s_2_4_6_128` additionally selects a different simulator. Use a separately
 identified paper recipe for retraining, and the saved configuration for loading
 historical weights. Matching layer counts or similar run names do not establish
-checkpoint compatibility. See [paper checkpoint records](../paper_experiments.md#checkpoints-and-saved-source-results).
+checkpoint compatibility. See [published weights](../paper_experiments.md#published-weights).
 
 ### Gaussian compartment collection
 
@@ -209,17 +209,16 @@ is saved without a final validation pass. These are separate dataset-size and
 training-budget presets, not a chain of resumed runs.
 
 The last three retain 100 regular checkpoints; other presets retain three.
-The old source's nested-config bug ignored its requested retention of 100.
-The source's eight-hour H100 allocation and 72-hour internal ceiling are
+The original nested-config bug ignored its requested retention of 100.
+The original eight-hour H100 allocation and 72-hour internal ceiling are
 replaced with a graceful eight-hour training-loop stop for those runs. This
 retains the existing A100 reproduction policy, not an equal compute budget:
 eight A100 hours are not compute-equivalent to eight H100 hours.
 The [Figure 4b page](../experiments/fig4b.md) documents completion evidence
 and source hashes.
 
-The source comments associate this family with the Figure 4b implementation
-in `mackelab/sbmi_transformer_symbolic` at `c8e118b`. That records an
-implementation relationship; no checkpoint is selected by these presets.
+This family implements the Figure 4b setup; no checkpoint is selected by
+these presets.
 
 ### Variable-prior scaling family
 
@@ -244,11 +243,11 @@ training batches of 4,096, RAdam at `5e-4`, EMA **0.99**, seed 0, a
 the 24-hour training limit is reached. There is no model-selection warmup or ramp. Checkpoints occur
 every 2,000 steps and validation every 4,000; terminal validation and KSD are
 disabled. `symbolic15`, `symbolic30`, `symbolic80` and `symbolic100` inherit `symbolic50` and replace the
-simulator and run name. `symbolic80` and `symbolic100` follow the source experiments `symbolic80_v3` and
-`symbolic100_v3`, whose continuation flags are not reproduced (training starts fresh). The expression
-palette repeats cyclically up to K, as in the source. For every K in 15, 30, 50, 80 and 100,
-`symbolic<K>_small` and `symbolic<K>_tiny` set the model width to 64 and 32 (source `*_v3_small`, `*_v3_tiny`). The source calls the K=15 configuration
-`symbolic20_v3`; the current name counts signal functions, excluding noise.
+simulator and run name. `symbolic80` and `symbolic100` start training fresh; the original runs' continuation
+is not reproduced. The expression
+palette repeats cyclically up to K, as in the original. For every K in 15, 30, 50, 80 and 100,
+`symbolic<K>_small` and `symbolic<K>_tiny` set the model width to 64 and 32. Preset names count signal functions,
+excluding noise.
 
 `symbolic50_illustrative` is the run behind Figures 2 and 4a: the K=50 model
 observed at ten inputs (`x = 0, 1, …, 9`, simulator `symbolic_50_illustrative`),
@@ -258,8 +257,7 @@ time. The figures use its step 1,396,000, published as
 
 Both larger symbolic families observe 500 signal values on `[0, 10)` with
 spacing 0.02, arranged as 50 blocks of 10. They do not use dMRI acquisitions.
-The scaling source is identified in config comments as
-`symbolic/add-networks` at `c8e118b8`. The fixed and variable prior families
+The fixed and variable prior families
 have different model configurations and scientific settings; sharing symbolic
 components does not make their checkpoints interchangeable.
 

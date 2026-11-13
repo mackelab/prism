@@ -58,7 +58,7 @@ historical Figure 6 weights has not been established. The paper's frozen
 scripts name `updated5_b3s_2_4_6_128`; its source preset uses PPP, whereas the
 public `b3s_2_4_6_128` bundle uses PP. The public multishell bundle also has a
 different simulator from that source preset. See the
-[paper workflow map](../paper_experiments.md#checkpoints-and-saved-source-results)
+[paper workflow map](../paper_experiments.md#published-weights)
 for the available source records.
 
 ## Symbolic checkpoints (safetensors)

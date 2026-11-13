@@ -1,4 +1,4 @@
-# Standard K=50 simulator from symbolic/add-networks c8e118b8.
+# Standard K=50 simulator (Figure 4c).
 model_class: prism.symbolic.paper.model_specs.SymbolicModelV50
 posterior_score: false
 observation_format: signal_blocks

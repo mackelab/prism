@@ -30,7 +30,7 @@ def classification_metrics(counts, normalised, pred_topk, true_idx, topk=5):
     recall. ``topk_micro`` is the fraction of samples whose true class is among
     the k most probable classes; ``topk_macro`` is the fraction of classes whose
     true class is among the k most frequent predictions of that class's own
-    samples (a row-wise statistic of the confusion matrix). As in the source,
+    samples (a row-wise statistic of the confusion matrix). As in the original,
     ties are broken by class index (``np.argsort``), so a class whose own samples
     are predicted into fewer than ``k`` distinct classes can count as a hit
     without ever having been predicted; this inflates ``topk_macro`` when

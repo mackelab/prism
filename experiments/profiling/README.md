@@ -39,13 +39,10 @@ the JAX version. Use `--skip-training` on the CPU.
 ## Reference: results recorded by the original scripts
 
 Steady-state means in milliseconds on one GPU (device model not recorded), batch
-2048 for the loss, 64 diffusion steps, from the `*.yaml` result files in the
-frozen sources: the dMRI rows from
-[`figures/run_time_analysis`](https://github.com/mackelab/dmri/tree/f363a66b1a002c316024bf5c5d11233a90c5319f/figures/run_time_analysis)
-in [`mackelab/dmri`](https://github.com/mackelab/dmri) at `f363a66`, the symbolic rows from
-[`figures/run_time`](https://github.com/mackelab/sbmi_transformer_symbolic/tree/c8e118b8bd557f2b001812f00af982b136f0d793/figures/run_time)
-in `mackelab/sbmi_transformer_symbolic` at `c8e118b`. These are for orientation,
-not a reproduction target: this port was not re-measured.
+2048 for the loss, 64 diffusion steps, from the original run-time measurements: the dMRI rows from the run-time
+analysis in [`mackelab/dmri`](https://github.com/mackelab/dmri), the symbolic
+rows from the original symbolic code. These are for orientation, not a
+reproduction target: this implementation was not re-measured.
 
 | Run | Parameters | `sample_mask` | `log_prob_mask` | `sample_theta` | `log_prob_theta` | `loss_forward` | `loss_backward` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -60,7 +57,7 @@ not a reproduction target: this port was not re-measured.
 | Symbolic K=100 tiny | 1.3 M | 296.8 | 3.14 | 109.2 | 576.1 | 230.9 | 302.6 |
 | dMRI B3S on CPU (`b3s_cpu`) | 6.8 M | 6.47 | 3.99 | 89.5 | 4316.3 | — | — |
 
-## Differences from the source scripts
+## Differences from the original scripts
 
 - One shared timing helper and one entry point replace the two near-identical
   1000-line scripts; the generic factory/demo commands, trace capture and

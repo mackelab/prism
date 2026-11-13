@@ -357,10 +357,10 @@ class PriorConditionedBinaryAutoregressiveDecoder(BinaryAutoregressiveDecoder):
     """Source symbolic head with a Fourier lambda context and prior log odds.
 
     The Fourier embedding is initialized before the transformer, matching the
-    original symbolic source's parameter paths and RNG consumption. The fixed
+    original implementation's parameter paths and RNG consumption. The fixed
     Figure 4b decoder above keeps its original initialization and rejection rules.
     Forward calls return learned logits; loss, log probability, and sampling add
-    the conditional prior log odds, as in the source implementation.
+    the conditional prior log odds, as in the original implementation.
     """
 
     def __init__(self, rngs: nnx.Rngs, *, prior_mask: Any = None, **kwargs: Any):

@@ -2,7 +2,6 @@
   "schema_version": 1,
   "source": {
     "repository": "https://github.com/mackelab/dmri",
-    "revision": "f363a66b1a002c316024bf5c5d11233a90c5319f",
     "files": {
       "dmri/eval/export_metrics.py": {
         "sha256": "5960e15a3bd7fc7ce5360597d856709b31617a18f5b5d327cb2a038bdbfd4836",

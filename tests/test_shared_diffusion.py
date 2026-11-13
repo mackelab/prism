@@ -1,6 +1,6 @@
 """Regression coverage for the diffusion implementation shared by both variants.
 
-The numeric references were evaluated from the pre-cleanup c02ebcee sources with
+The numeric references were evaluated from the pre-cleanup sources with
 probjax 0.1.1. A deterministic parameter perturbation exercises gradients through
 initially zero gates. The separate Figure 4b fixture covers its actual tokenizer,
 full network parameter paths, gradients, and samples.

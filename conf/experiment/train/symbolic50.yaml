@@ -1,5 +1,5 @@
 # @package _global_
-# Standard symbolic50_v3 from symbolic/add-networks c8e118b8.
+# Standard K=50 scaling preset (Figure 4c).
 defaults:
   - override /simulator: symbolic_50
   - override /model: symbolic_prior

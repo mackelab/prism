@@ -1,5 +1,4 @@
 {
-  "source_commit": "c8e118b8bd557f2b001812f00af982b136f0d793",
   "source_builder_sha256": "cc059789051b5d4abd1d3213ea9bfab9c9c478d6edf935d459596309e43ce300",
   "description": "Scientific settings from the existing batch-128 larger-run builder composed with the unchanged shared configuration. Tracking and output paths are excluded.",
   "common": {

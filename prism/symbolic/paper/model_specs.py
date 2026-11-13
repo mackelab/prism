@@ -1,8 +1,8 @@
 """Frozen Figure 4b and K=15/30/50 symbolic model specifications.
 
-Adapted from mackelab/sbmi_transformer_symbolic (MIT), commit
-c8e118b8bd557f2b001812f00af982b136f0d793. Component order, bounds and noise
-expressions match that source; the small polynomial example is independent.
+Adapted from mackelab/sbmi_transformer_symbolic (MIT). Component order, bounds
+and noise expressions match the original; the small polynomial example is
+independent.
 """
 
 import jax
@@ -335,7 +335,7 @@ class SymbolicModelV0(AdditiveModel):
 
 
 class SymbolicModelV15(AdditiveModel):
-    """The source K=15 scaling model with a Beta-Bernoulli component prior."""
+    """The original K=15 scaling model with a Beta-Bernoulli component prior."""
 
     model_types = symbolic_component_types_v0
     noise_types = symbolic_noise_types_v0
@@ -673,7 +673,7 @@ symbolic_component_palette_v1 = (
 )
 
 
-# The source takes the first 30 expressions and cycles the palette for K=50.
+# The original takes the first 30 expressions and cycles the palette for K=50.
 symbolic_component_types_v30 = symbolic_component_palette_v1[:30]
 symbolic_component_types_v50 = (
     symbolic_component_palette_v1 + symbolic_component_palette_v1[:8]
@@ -694,7 +694,7 @@ symbolic_noise_types_v1 = symbolic_noise_types_v0 + (
 
 
 class SymbolicModelV30(AdditiveModel):
-    """The source K=30 model: thirty expressions and eight noise alternatives."""
+    """The original K=30 model: thirty expressions and eight noise alternatives."""
 
     model_types = symbolic_component_types_v30
     noise_types = symbolic_noise_types_v1
@@ -703,7 +703,7 @@ class SymbolicModelV30(AdditiveModel):
 
 
 class SymbolicModelV50(AdditiveModel):
-    """The source K=50 model: fifty expressions and eight noise alternatives."""
+    """The original K=50 model: fifty expressions and eight noise alternatives."""
 
     model_types = symbolic_component_types_v50
     noise_types = symbolic_noise_types_v1
@@ -713,7 +713,7 @@ class SymbolicModelV50(AdditiveModel):
 
 
 class SymbolicModelV80(AdditiveModel):
-    """The source K=80 model: the expression palette cycled to eighty components."""
+    """The original K=80 model: the expression palette cycled to eighty components."""
 
     model_types = symbolic_component_types_v80
     noise_types = symbolic_noise_types_v1
@@ -723,7 +723,7 @@ class SymbolicModelV80(AdditiveModel):
 
 
 class SymbolicModelV100(AdditiveModel):
-    """The source K=100 model: the expression palette cycled to one hundred components."""
+    """The original K=100 model: the expression palette cycled to one hundred components."""
 
     model_types = symbolic_component_types_v100
     noise_types = symbolic_noise_types_v1

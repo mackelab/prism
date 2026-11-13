@@ -1,5 +1,5 @@
 # @package _global_
-# The source experiment symbolic100_v3 (continuation settings are not reproduced; training starts fresh).
+# K=100 scaling preset; training starts fresh (the original run's continuation is not reproduced).
 defaults:
   - symbolic50
   - override /simulator: symbolic_100

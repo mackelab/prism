@@ -6,7 +6,7 @@ is timed over several runs after a compile run. The effective sample size (ESS)
 is computed from importance weights ``posterior / q`` of the samples, with ``q``
 evaluated by the network at 1024 steps, and divided by 1000.
 
-NOT TESTED: this script was ported from a notebook without being run. The timings
+NOT TESTED: this script was written from an analysis notebook without being run. The timings
 depend on the hardware (the paper used an Nvidia H100) and the voxel on the data.
 
 Example: python -m experiments.dmri.diffusion_steps.run results/b3s \
@@ -37,7 +37,7 @@ def load_voxel(data_dir, index):
     ``data_dir`` holds ``data.nii.gz``, ``nodif_brain_mask.nii.gz``, ``bvals`` and
     ``bvecs``. b-values are rounded to 0/1000/2000, signals are divided by the mean
     b=0 signal, outliers above the 99.9% quantile are clipped, and volumes are sorted
-    by b-value, as in the source notebook. Requires ``dipy``.
+    by b-value, as in the original analysis. Requires ``dipy``.
     """
     from dipy.io.gradients import read_bvals_bvecs
     from dipy.io.image import load_nifti

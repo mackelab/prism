@@ -29,7 +29,7 @@ The paper's panels come from the checkpoint at step 1,396,000 of that run (publi
 
 **Figure A.1** uses the standard K=50 model (`symbolic50`, latest step 362,000) on the
 full observation grid (`x = 0, 0.02, …, 9.98`, 500 observations; the caption's "1000
-observations" does not match the source notebook) and the same simulated observation as
+observations" does not match the original analysis) and the same simulated observation as
 Figure 2 (seed 69, ground truth `4.3·log(x + 1.5) + 6.7`), without the Figure 2 edit.
 The notebook shows fixed posterior draws instead of scoring them (the draw at an index
 depends on the seed and on `--num-samples`, so use `--num-samples 1000` with the stated
@@ -46,10 +46,10 @@ uv run python -m experiments.symbolic.illustrations.illustrate --preset symbolic
 ```
 
 This reproduces the figure's equations exactly: `2.7·√(x + 0.4) + 8.3` at λ = 0.1 and
-`1.4·10⁻⁵·x⁵ + 10.7 + 4.5·exp(−2.9·exp(−0.8x)) − 3.5·exp(−1.6x)` at λ = 0.5. The source
-is `figures/fig2/illustrative.ipynb` of the symbolic repository, which wrote the A.1
-panels; the later `illustrative3.ipynb` (seed 147, 5,000 draws) is an exploration
-that saved no figure panels.
+`1.4·10⁻⁵·x⁵ + 10.7 + 4.5·exp(−2.9·exp(−0.8x)) − 3.5·exp(−1.6x)` at λ = 0.5. These settings
+come from the original analysis that produced the A.1 panels; an earlier version of
+this recipe (seed 147, 5,000 draws) followed a later exploration that saved no
+figure panels.
 
 `--weights-dir DIR` reads a local copy (`DIR/config.yaml`, `DIR/latest/params_ema.safetensors`)
 instead of the Hub. The Figures 2 and 4a command above also works with

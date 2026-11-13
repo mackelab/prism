@@ -194,5 +194,5 @@ For development and test commands, see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Sources
 
 Built from [mackelab/dmri](https://github.com/mackelab/dmri) and
-[mackelab/sbmi_transformer_symbolic](https://github.com/mackelab/sbmi_transformer_symbolic).
+`mackelab/sbmi_transformer_symbolic` (not public).
 Released under the [MIT license](LICENCE).

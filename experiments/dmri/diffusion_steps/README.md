@@ -10,10 +10,10 @@ importance weights against the network's own density evaluated at 1024 steps.
 | `run.py` | loads a B3S run and a voxel, sweeps the step counts, writes an npz |
 | `plot.py` | the two-panel figure |
 
-Source: [`figures/b3s_fig/dmri_illustrative.ipynb`](https://github.com/mackelab/dmri/blob/f363a66b1a002c316024bf5c5d11233a90c5319f/figures/b3s_fig/dmri_illustrative.ipynb)
-in [`mackelab/dmri`](https://github.com/mackelab/dmri) at `f363a66`.
+Based on the diffusion-step analysis in
+[`mackelab/dmri`](https://github.com/mackelab/dmri).
 
-**Status: not tested.** `run.py` was ported from a notebook but has not been run:
+**Status: not tested.** `run.py` follows an analysis notebook but has not been run:
 it needs real HCP data (`dipy`) and a B3S checkpoint, and the run times are
 specific to the hardware (the paper used an Nvidia H100). Only `plot.py` is covered
 by a test.

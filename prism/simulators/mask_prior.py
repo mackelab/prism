@@ -282,7 +282,7 @@ class BetaBernoulliMaskPrior(MaskPrior):
     ) -> jax.Array:
         """Return source-compatible log probabilities given preceding mask bits.
 
-        Adapted from mackelab/sbmi_transformer_symbolic (MIT), c8e118b.
+        Adapted from mackelab/sbmi_transformer_symbolic (MIT).
         The forced-component mixture is marginalized over each unfinished suffix.
         """
         full_mask = jnp.asarray(model_mask, dtype=jnp.bool_)

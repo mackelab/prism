@@ -87,8 +87,8 @@ a GPU; `--slurm a100` submits it as a Slurm job.
 
 ## Source
 
-This evaluator follows `figures/fig2/sbmi_comp_fig.ipynb` from symbolic source
-`c8e118b8bd557f2b001812f00af982b136f0d793`. Training settings are listed in the
+This evaluator follows the Figure 4b evaluation of the original symbolic code.
+Training settings are listed in the
 [preset catalog](../reference/experiments.md#fixed-empirical-prior-family).
 The former `python examples/eval_fig4b_point.py ...` entry point has been
 removed; use the module command in the recipe with the same arguments.

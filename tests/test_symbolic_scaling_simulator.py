@@ -22,9 +22,7 @@ from prism.symbolic.paper.model_specs import (
 from prism.train.build_simulator import build_simulator
 
 FIXTURES = Path(__file__).parent / "fixtures"
-SOURCE_COMMIT = "c8e118b8bd557f2b001812f00af982b136f0d793"
-# K=15/30 live in the original fixture, K=80/100 in the one recorded by
-# tests/fixtures/generate_symbolic_scaling_source.py.
+# K=15/30 live in the original fixture, K=80/100 in a second recorded fixture.
 FIXTURE_NAMES = ("symbolic_scaling_source", "symbolic_scaling_large_source")
 
 
@@ -45,7 +43,6 @@ def metadata():
     merged = dict(records[0])
     merged["variants"] = {}
     for record in records:
-        assert record["source_commit"] == SOURCE_COMMIT
         merged["variants"].update(record["variants"])
     return merged
 
@@ -83,7 +80,6 @@ def generator(variant):
 
 
 def test_scaling_fixture_provenance(metadata):
-    assert metadata["source_commit"] == SOURCE_COMMIT
     assert metadata["variants"]["15"]["source_class"] == "SymbolicModelV0"
     for k in (30, 80, 100):
         assert metadata["variants"][str(k)]["source_class"] == f"SymbolicModelV{k}"

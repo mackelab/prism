@@ -1,5 +1,4 @@
 {
-  "source_commit": "c8e118b8bd557f2b001812f00af982b136f0d793",
   "source_file": "sbmi_pp/nn/autoregressive.py",
   "source_sha256": "5ab0df1bb168ec59feabba9c150ca3de0d48d4fa89532566af7f823296bed60a",
   "versions": {

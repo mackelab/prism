@@ -61,9 +61,9 @@ Enable W&B with an explicit `--wandb --wandb-entity ENTITY --wandb-project PROJE
 | `theta` | 15 fixed model masks for each of short and long acquisition | 10,000 | 300,000 |
 
 The fixed prior values are `0, .1, .2, .3, .4, .5, .6, .8, .9, 1`, following the
-source launcher. Defaults use seed 0, 200 model draws or 50 parameter draws, and
+original launcher. Defaults use seed 0, 200 model draws or 50 parameter draws, and
 64 ODE steps with `t_min=1e-4` and no final Euler step. Trial keys preserve the
-source launcher's sequential splits and `random.split(key, N)` order. Changing
+original launcher's sequential splits and `random.split(key, N)` order. Changing
 `N` changes those keys; a reduced check is not a subset of the full experiment.
 
 Model SBC uses randomized ranks of posterior model log probabilities. Parameter

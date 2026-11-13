@@ -1,5 +1,5 @@
 # @package _global_
-# The source calls this K=15 scaling experiment symbolic20_v3.
+# K=15 scaling preset: 15 signal functions (the name excludes noise components).
 defaults:
   - symbolic50
   - override /simulator: symbolic_15

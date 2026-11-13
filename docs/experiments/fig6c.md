@@ -57,7 +57,7 @@ batch sizes and metric selection.
 `--ksd-variant frozen` preserves the original kernel. `--ksd-variant corrected`
 selects the separately tested score-transform correction. Always keep these
 outputs separate. Numerical summaries use untrimmed rKSD values; violin plots
-omit each mask's upper one percent, following the source plotting convention.
+omit each mask's upper one percent, following the original plotting convention.
 
 ## Outputs and paper relationship
 

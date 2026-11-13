@@ -29,7 +29,7 @@ uv run python -m experiments.dmri.sbi_baseline.train --output results/sbi_b3s \
     --num-steps 30000000 --slurm h100_long
 ```
 
-The source ran this for 30M steps (three days on one H100). `--resume` continues
+The original baseline ran for 30M steps (three days on one H100). `--resume` continues
 from `results/sbi_b3s/checkpoints/latest.pt` with the network and simulator saved
 in the run's `config.json`; architecture flags need not be repeated, and a
 conflicting one is rejected. Use `--sim-type
@@ -57,18 +57,17 @@ uv run python -m experiments.dmri.sbi_baseline.evaluate results/sbi_smoke/checkp
     --regimes hcp --num-datasets 2 --num-samples 16
 ```
 
-## Differences from the source
+## Differences from the original baseline
 
-This is a cleaned-up port of `figures/b3s_baseline` at
-[`f363a66`](https://github.com/mackelab/dmri/tree/f363a66b1a002c316024bf5c5d11233a90c5319f);
+This follows the B3S baseline in [`mackelab/dmri`](https://github.com/mackelab/dmri);
 it has not been
 checked against the paper's numbers or the original checkpoints.
 
 - The condition is one packed tensor, so the unmodified `sbi` builder and the
-  underlying `nflows` flow replace the source's dict-conditioned wrapper.
-- Data are simulated online each step, without the source's replay buffer and
+  underlying `nflows` flow replace the original dict-conditioned wrapper.
+- Data are simulated online each step, without the original replay buffer and
   prefetching; there is no W&B logging and only `best.pt` and `latest.pt` are kept.
 - The held-out evaluation batch is fixed, not drawn from the data stream.
 - ESS weights use the likelihood times the standard-normal prior, like PRISM's
-  KSD and ESS. The source's baseline script used the likelihood alone.
+  KSD and ESS. The original baseline script used the likelihood alone.
 - Real-data evaluation (UKB/HCP volumes) is not included.

@@ -1,4 +1,4 @@
-# Adapted from mackelab/sbmi_transformer_symbolic (MIT), c8e118b.
+# Adapted from mackelab/sbmi_transformer_symbolic (MIT).
 from __future__ import annotations
 
 from collections.abc import Sequence
