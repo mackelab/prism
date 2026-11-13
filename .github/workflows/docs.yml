@@ -1,0 +1,40 @@
+name: Docs
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths: ["docs/**", "examples/**", "prism/**", "zensical.toml", "pyproject.toml", "uv.lock", ".python-version", ".github/workflows/docs.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "docs-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.14"
+
+      - name: Install documentation dependencies
+        run: |
+          python -m pip install uv==0.12.13
+          uv sync --locked --extra docs --python 3.12.14
+
+      - name: Execute and render notebooks
+        env:
+          MPLBACKEND: module://matplotlib_inline.backend_inline
+        run: |
+          .venv/bin/python docs/render_examples.py
+
+      - name: Build Zensical site
+        run: |
+          .venv/bin/zensical build --clean --strict

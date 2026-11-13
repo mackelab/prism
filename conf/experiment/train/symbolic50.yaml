@@ -1,0 +1,22 @@
+# @package _global_
+# Standard symbolic50_v3 from symbolic/add-networks c8e118b8.
+defaults:
+  - override /simulator: symbolic_50
+  - override /model: symbolic_prior
+  - override /training: symbolic_online
+  - override /infrastructure/launcher: slurm
+  - override /infrastructure/partition: a100
+
+hydra:
+  launcher:
+    timeout_min: 1560
+
+run:
+  name: symbolic50
+  seed: 0
+
+tracking:
+  enabled: false
+  wandb:
+    project: prism-symbolic
+    entity: null

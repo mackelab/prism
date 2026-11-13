@@ -1,0 +1,32 @@
+schema_version: 2
+
+run:
+  name: prism
+  seed: 0
+
+tracking:
+  enabled: false
+  wandb:
+    project: prism
+    entity: null
+
+simulator:
+  posterior_score: false
+  mask_prior: {}
+
+hydra:
+  run:
+    dir: results/${run.name}/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: results/${run.name}/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.num}
+
+# Choose an application through a preset, e.g. `+experiment/train=symbolic`,
+# or directly with `simulator=... model=...`.
+defaults:
+  - _self_
+  - simulator: null
+  - model: null
+  - training: default
+  - infrastructure/launcher: local
+  - infrastructure/partition: none

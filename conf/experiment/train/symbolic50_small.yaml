@@ -1,0 +1,11 @@
+# @package _global_
+# Width variant of symbolic50 (source symbolic*_v3_small): model_dim 64.
+defaults:
+  - symbolic50
+  - _self_
+
+run:
+  name: symbolic50_small
+
+model:
+  model_dim: 64

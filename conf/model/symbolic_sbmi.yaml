@@ -1,0 +1,70 @@
+init_seed: 0
+name: prism.symbolic.paper.model.SymbolicPaperModelConfig
+architecture: prism.symbolic.paper.model.SymbolicPaperModel
+# Figure 4b architecture: keep the PP configuration and shifted-mask embeddings.
+tokenizer_cls: prism.symbolic.paper.tokenizer.SymbolicPaperTokenizerPP
+model_dim: 64
+use_attention_mask: true
+inference_loss_type: v
+precision: null
+dtype: null
+preferred_element_type: null
+
+embedding_net:
+  name: prism.symbolic.paper.embedding.SymbolicPaperEmbeddingConfig
+  cls: prism.symbolic.paper.embedding.SymbolicPaperEmbeddingTransformer
+  cls_params:
+    input_dim: 10
+  params:
+    num_layers: 2
+    num_heads: 4
+    widening_factor: 4
+    use_flash_attention: true
+    attn_size: 16
+    dropout_rate: 0.0
+    y_seq_dim: null
+    y_glob_dim: null
+    out_norm: true
+    use_global_summary_token: false
+    precision: null
+    dtype: null
+    preferred_element_type: null
+    param_dtype: null
+    reduce_factor: 1
+
+model_selection_net:
+  name: prism.symbolic.paper.autoregressive.SymbolicPaperModelSelectionConfig
+  params:
+    num_layers: 4
+    num_heads: 4
+    widening_factor: 4
+    use_flash_attention: false
+    use_flash_cross_attention: true
+    attn_size: 16
+    normalize_qk_attn: false
+    normalize_qk_cross_attn: false
+    dropout_rate: 0.0
+    mask_prior_dim: 0
+    precondition_with_mask_prior: false
+    precision: null
+    dtype: null
+    preferred_element_type: null
+
+inference_net:
+  name: prism.symbolic.paper.simformer.SymbolicPaperThetaInferenceConfig
+  params:
+    num_layers: 4
+    num_heads: 4
+    widening_factor: 4
+    use_flash_attention: false
+    use_flash_cross_attention: true
+    normalize_qk_attn: false
+    normalize_qk_cross_attn: false
+    attn_size: 16
+    time_embed_dim: 128
+    gate_attention: false
+    gate_mlp: false
+    dropout_rate: 0.0
+    precision: null
+    dtype: null
+    preferred_element_type: null

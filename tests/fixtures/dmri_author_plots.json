@@ -1,0 +1,25 @@
+{
+  "source_commit": "f363a66b1a002c316024bf5c5d11233a90c5319f",
+  "functions": {
+    "normalize_by_prior": "a9427999762c1f7a099ff99415143810c145ef7e5dc3fe8758f1b51b32afb349",
+    "trim_values": "18699660d020f617eec20d37bd1e9c69d217a66956c03f6841a5675cfa6f1808",
+    "build_label_masks": "9b4d680e4ee9501558e771de47275ffc23083fe85c8449760d0312dbb4fe82f6",
+    "expand_label_masks": "5af9c53c4f54353843922d414988eb5554321d7b4af9827b7f1bb390790c4059",
+    "group_by_mask_list": "2222bd1fe127624f0d91662050a492543ce72ed55597e3d74aa549bd0a76f1fb",
+    "style_violin": "121b4a2f2fcc12647679c61c7de5ee2d114b1d8d0c21639e773ffb854118f3c2",
+    "plot_violin": "4dd14bd50c550571a5fed2b07f5bb12b3daad14bafd35aabe4e0f6c46e7808a0",
+    "preprocess": "f72c079a038d5a70d013e78c7c4b2230d5a75918e5ffc02437fb9445f9525508"
+  },
+  "style_sha256": "c5d1a4eb2d937b3e732d17667de66d8bc23144d41d6d72d1ba405df0d5269c35",
+  "reference_band": {
+    "counts": 16,
+    "repetitions": 32,
+    "batch_size": 8,
+    "seed": 0,
+    "source": "cov_fig.ipynb cell 6; only the Monte Carlo workload reduced",
+    "values": [
+      0.027296870946884155,
+      0.16798371076583862
+    ]
+  }
+}

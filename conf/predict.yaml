@@ -1,0 +1,23 @@
+# Root config for `prism predict`.
+#
+# Inherits the whole evaluation tree from eval.yaml, then layers the
+# prediction-specific policy that used to live as Python constants and
+# hand-written override strings in prism/dmri/predict.py.
+#
+# The CLI is a friendly front end over this file: `--quality fast` becomes
+# `predict/quality=fast`, and `--set key=value` reaches anything without a flag.
+
+defaults:
+  - eval
+  - predict/quality: balanced
+  - predict/model_mode: per-sample
+  - predict/fixed_model: B3S
+  - predict/viewer: default
+  # Prediction has no ground truth, so the metrics exports cannot run.
+  - override evaluation/export/theta: ball3stick_predict
+  - _self_
+
+checkpoint:
+  # Which checkpoint to load; `--checkpoint-which` overrides it. Every Hub
+  # bundle ships `best` (msb3s_2_4_6_128 also `latest`), so the default is `best`.
+  which: best

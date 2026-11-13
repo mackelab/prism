@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - symbolic_sbmi
+  - _self_
+
+# 200k steps take about 10h, too close to the a100 preset's 700 minutes.
+hydra:
+  launcher:
+    timeout_min: 1560
+
+run:
+  name: symbolic_sbmi_50k
+
+training:
+  max_train_steps: 200_000
+  dataloader:
+    dataset:
+      dataset_size: 50_000

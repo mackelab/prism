@@ -1,0 +1,11 @@
+# @package _global_
+# Width variant of symbolic15 (source symbolic*_v3_small): model_dim 64.
+defaults:
+  - symbolic15
+  - _self_
+
+run:
+  name: symbolic15_small
+
+model:
+  model_dim: 64

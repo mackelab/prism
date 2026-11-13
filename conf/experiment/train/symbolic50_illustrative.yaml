@@ -1,0 +1,29 @@
+# @package _global_
+# The K=50 model on ten observations, used for Figures 2 and 4a
+# (seed 1, training batch 8192, three-day allocation).
+defaults:
+  - override /simulator: symbolic_50_illustrative
+  - override /model: symbolic_prior
+  - override /training: symbolic_online
+  - override /infrastructure/launcher: slurm
+  - override /infrastructure/partition: a100
+
+hydra:
+  launcher:
+    timeout_min: 4320
+
+run:
+  name: symbolic50_illustrative
+  seed: 1
+
+training:
+  max_train_hours: 72
+  dataloader:
+    train_loader:
+      batch_size: 8192
+
+tracking:
+  enabled: false
+  wandb:
+    project: prism-symbolic
+    entity: null

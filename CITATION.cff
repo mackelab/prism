@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use PRISM, please cite this software."
+type: software
+title: "PRISM: Joint Inference of Model Structure and Parameters"
+version: 0.1.0
+authors:
+  - family-names: Gloeckler
+    given-names: Manuel
+    email: manuel.gloeckler@uni-tuebingen.de
+repository-code: "https://github.com/mackelab/prism"
+url: "https://github.com/mackelab/prism"
+license: MIT

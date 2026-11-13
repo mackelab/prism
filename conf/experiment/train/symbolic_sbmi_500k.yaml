@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - symbolic_sbmi_200k
+  - _self_
+
+run:
+  name: symbolic_sbmi_500k
+
+training:
+  dataloader:
+    dataset:
+      dataset_size: 500_000

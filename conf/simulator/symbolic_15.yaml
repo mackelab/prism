@@ -1,0 +1,6 @@
+defaults:
+  - symbolic_50
+  - _self_
+
+# The scaling run uses source V0 components with a variable Beta-Bernoulli prior.
+model_class: prism.symbolic.paper.model_specs.SymbolicModelV15

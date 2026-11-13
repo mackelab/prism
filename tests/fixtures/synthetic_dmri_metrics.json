@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "https://github.com/mackelab/dmri",
+    "revision": "f363a66b1a002c316024bf5c5d11233a90c5319f",
+    "files": {
+      "dmri/eval/export_metrics.py": {
+        "sha256": "5960e15a3bd7fc7ce5360597d856709b31617a18f5b5d327cb2a038bdbfd4836",
+        "functions": [
+          "multiscale_preconditioned_ksd_and_pvalue"
+        ]
+      },
+      "figures/b3s_fig/coverage_eval.py": {
+        "sha256": "248906c82eb66a4a099a754fb1683331f34ffc0640b0724d10930ccdc54906c2",
+        "functions": [
+          "build_mask_pit_fn",
+          "build_theta_pit_fn"
+        ]
+      },
+      "figures/b3s_fig/ksd_eval.py": {
+        "sha256": "3ec75284925b9dc17cfc8e60045146141e9b0aff7dbbd01bcd7debabd43ceb2c",
+        "functions": [
+          "make_sample_fn",
+          "eval_ksd_single",
+          "eval_ksd_prior_single"
+        ]
+      }
+    },
+    "generation": "Expected outputs computed directly from named function ASTs at the source revision; no top-level figure script was executed. Inputs use ToyModel and GaussianSimulator from test_synthetic_dmri_metrics.py."
+  },
+  "environment": {
+    "python": "3.12.14",
+    "backend": "cpu",
+    "jax_enable_x64": false,
+    "jax_default_prng_impl": "threefry2x32",
+    "versions": {
+      "jax": "0.8.1",
+      "jaxlib": "0.8.1",
+      "numpy": "2.5.3"
+    }
+  },
+  "data": {
+    "acq": [
+      0.0
+    ],
+    "x": [
+      0.4000000059604645,
+      -0.30000001192092896,
+      0.0
+    ],
+    "mask_prior": [
+      0.5
+    ],
+    "model_mask": [
+      true,
+      true,
+      false
+    ],
+    "theta": [
+      0.10000000149011612,
+      -0.20000000298023224,
+      1000.0
+    ]
+  },
+  "toy_posterior_mean": [
+    0.2,
+    -0.5,
+    8.0
+  ],
+  "sbc": {
+    "seed": 22,
+    "mask_samples": 17,
+    "theta_samples": 13,
+    "rng": "mask_key, theta_key, unused = jax.random.split(jax.random.key(seed), 3)",
+    "sampler": {
+      "sample_method": "ode",
+      "num_steps": 64,
+      "last_euler_step": false,
+      "t_min": null
+    },
+    "expected": {
+      "model_pit": 0.2753911316394806,
+      "theta_sum_pit": 0.627811074256897
+    }
+  },
+  "ksd": {
+    "seed": 101,
+    "theta_samples": 8,
+    "bandwidths": [
+      0.1,
+      0.5,
+      1.0,
+      10.0
+    ],
+    "n_bootstrap": 512,
+    "rng": "posterior_key, prior_key = jax.random.split(jax.random.key(seed))",
+    "sampler": {
+      "num_steps": 128,
+      "t_min": 0.005,
+      "last_euler_step": false
+    },
+    "expected": {
+      "posterior_ksd": 0.0,
+      "posterior_pvalue": 0.4385964870452881,
+      "prior_ksd": 0.0,
+      "prior_pvalue": 0.446393758058548
+    }
+  },
+  "ksd_shifted_observation": {
+    "seed": 101,
+    "theta_samples": 8,
+    "bandwidths": [
+      0.1,
+      0.5,
+      1.0,
+      10.0
+    ],
+    "n_bootstrap": 512,
+    "rng": "posterior_key, prior_key = jax.random.split(jax.random.key(seed))",
+    "sampler": {
+      "num_steps": 128,
+      "t_min": 0.005,
+      "last_euler_step": false
+    },
+    "expected": {
+      "posterior_ksd": 0.6243618726730347,
+      "posterior_pvalue": 0.005847953259944916,
+      "prior_ksd": 1.3351316452026367,
+      "prior_pvalue": 0.013645224273204803
+    },
+    "data_override": {
+      "x": [
+        4.0,
+        -4.0,
+        0.0
+      ]
+    }
+  }
+}

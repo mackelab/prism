@@ -1,0 +1,14 @@
+defaults:
+  - symbolic_sbmi
+  - override dataloader: symbolic_online
+  - _self_
+
+eval_freq: 4000
+model_selection_warmup_steps: 0
+model_selection_ramp_steps: 0
+# The original fast.yaml uses 0.99, distinct from the paper's general 0.999.
+ema_decay: 0.99
+optimizer:
+  learning_rate: 5e-4
+# Local execution stops gracefully; cluster allocations must cover this budget.
+max_train_hours: 24

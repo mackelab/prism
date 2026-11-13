@@ -1,0 +1,13 @@
+# @package _global_
+defaults:
+  - symbolic_sbmi
+  - _self_
+
+run:
+  name: symbolic_sbmi_10k
+
+training:
+  max_train_steps: 50_000
+  dataloader:
+    dataset:
+      dataset_size: 10_000

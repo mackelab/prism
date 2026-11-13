@@ -1,0 +1,28 @@
+# @package _global_
+
+defaults:
+  - override /simulator: symbolic
+  - override /model: symbolic
+  - override /training/dataloader: static
+  - override /training/optimizer: adamw
+
+run:
+  name: symbolic
+  seed: 0
+
+tracking:
+  enabled: false
+
+training:
+  inner_steps: 5
+  max_train_steps: 100
+  checkpoint_freq: 25
+  eval_freq: 25
+  track_ema: true
+  eval:
+    nnl_mask:
+      iters: 1
+    nnl_theta:
+      iters: 1
+    ksd:
+      iters: 0

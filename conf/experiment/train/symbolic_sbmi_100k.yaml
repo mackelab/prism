@@ -1,0 +1,28 @@
+# @package _global_
+# Source c8e118b; allow 24 hours to finish the 500,000-step cap on A100.
+defaults:
+  - symbolic_sbmi
+  - _self_
+
+hydra:
+  launcher:
+    timeout_min: 1560
+
+run:
+  name: symbolic_sbmi_100k
+
+# The 100k checkpoint has six model-selection layers. Its recorded sweep
+# overrides (results/symbolic_sbmi_100k/2026-01-09_11-41-29/multirun.yaml) set
+# inference 4 and selection 6, although the preset in the source at c8e118b
+# says 4 for both.
+model:
+  model_selection_net:
+    params:
+      num_layers: 6
+
+training:
+  max_train_steps: 500_000
+  max_train_hours: 24
+  dataloader:
+    dataset:
+      dataset_size: 100_000

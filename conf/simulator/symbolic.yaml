@@ -1,0 +1,8 @@
+model_class: prism.symbolic.simulators.SimplePolynomial
+posterior_score: false
+num_points: 32
+x_min: -1.0
+x_max: 1.0
+mask_prior:
+  alpha: 1.0
+  beta: 1.0

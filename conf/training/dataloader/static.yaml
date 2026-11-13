@@ -1,0 +1,26 @@
+name: StaticDataset
+
+dataset:
+  dataset_size: 128
+  simulation_batch_size: 32
+  device: cpu
+  return_numpy: false
+
+train_loader:
+  batch_size: 8
+  shuffle: true
+  drop_last: true
+  loop: true
+  num_prefetch_host: 1
+  num_prefetch_device: 1
+
+val_dataset:
+  dataset_size: 32
+
+val_loader:
+  batch_size: 4
+  shuffle: false
+  drop_last: true
+  loop: true
+  num_prefetch_host: 1
+  num_prefetch_device: 1

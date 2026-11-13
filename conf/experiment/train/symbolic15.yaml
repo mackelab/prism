@@ -1,0 +1,9 @@
+# @package _global_
+# The source calls this K=15 scaling experiment symbolic20_v3.
+defaults:
+  - symbolic50
+  - override /simulator: symbolic_15
+  - _self_
+
+run:
+  name: symbolic15

@@ -1,0 +1,30 @@
+init_seed: 0
+name: prism.nn.model.PrismModelConfigMaskPriorAmortized
+# Generic compartment tokenizer; its operations are shared with Figure 4b variants.
+tokenizer_cls: prism.nn.compartment_tokenizer.CompartmentTokenizer
+model_dim: 16
+use_attention_mask: true
+inference_loss_type: v
+
+defaults:
+  - embedding_net: transformer
+  - inference_net: simformer
+  - model_selection_net: prior_amortized
+
+inference_net:
+  params:
+    num_layers: 1
+    num_heads: 2
+    widening_factor: 2
+    attn_size: 8
+    time_embed_dim: 16
+    use_flash_cross_attention: false
+
+model_selection_net:
+  params:
+    num_layers: 1
+    num_heads: 2
+    widening_factor: 2
+    attn_size: 8
+    prior_params_embed_dim: 16
+    use_flash_cross_attention: false

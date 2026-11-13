@@ -1,0 +1,213 @@
+import jax
+import jax.numpy as jnp
+from jax.typing import ArrayLike
+
+from prism.dmri.simulators.acquisition_scheme import acquisition_scheme
+from prism.dmri.simulators.convolved_models import SignalKernel
+from prism.dmri.simulators.local_signal_models.stick import Stick
+from prism.dmri.simulators.local_signal_models.zeppelin import Zeppelin
+from prism.dmri.utils import cart2sph
+
+
+class StickKernel(SignalKernel):
+    theta_dim: int = 1
+    lam_min: float = Stick.min_lam
+    lam_max: float = Stick.max_lam
+
+    def __init__(self, lam_par: float):
+        self.lam_par = lam_par
+
+    @classmethod
+    def kernel_fn(
+        cls,
+        acq: acquisition_scheme,
+        mu: ArrayLike,
+        lam_par: float,
+        rng=None,
+    ) -> ArrayLike:
+        """Compute the log signal for given b-values and b-vectors."""
+        signal_fn = jax.vmap(Stick.signal_fn, in_axes=(0, None, None))
+        mu = cart2sph(mu)
+        return signal_fn(acq, mu, lam_par)
+
+    @classmethod
+    def to_params(cls, theta: ArrayLike) -> tuple:
+        """Convert the parameter space theta to the lambda value."""
+        theta = jax.scipy.stats.norm.cdf(theta)
+        lam = theta[0] * (cls.lam_max - cls.lam_min) + cls.lam_min
+        return (lam,)
+
+    @classmethod
+    def to_theta(cls, lam_par: ArrayLike) -> ArrayLike:
+        """Convert the lambda value to the parameter space theta."""
+        lam_par = (lam_par - cls.lam_min) / (cls.lam_max - cls.lam_min)
+        theta = jnp.array([lam_par])
+        theta = jax.scipy.stats.norm.ppf(theta)
+        return theta
+
+
+class ZeppelinKernel(SignalKernel):
+    theta_dim: int = 2
+    lam_min: float = Zeppelin.min_lam
+    lam_max: float = Zeppelin.max_lam
+
+    def __init__(self, lam_perp: float, lam_par: float):
+        self.lam_perp = lam_perp
+        self.lam_par = lam_par
+
+    @classmethod
+    def kernel_fn(
+        cls,
+        acq: acquisition_scheme,
+        mu: ArrayLike,
+        lam_perp: float,
+        lam_par: float,
+        rng=None,
+    ) -> ArrayLike:
+        """Signal for the given b-values and b-vectors."""
+        signal_fn = jax.vmap(Zeppelin.signal_fn, in_axes=(0, None, None, None))
+        mu = cart2sph(mu)
+        # Zeppelin.signal_fn takes (acq, mu, lambda_par, lambda_perp).
+        return signal_fn(acq, mu, lam_par, lam_perp)
+
+    @classmethod
+    def to_params(cls, theta: ArrayLike) -> tuple:
+        """Convert the parameter space theta to the lambda value."""
+        theta = jax.scipy.stats.norm.cdf(theta)
+        lam_perp = theta[0] * (cls.lam_max - cls.lam_min) + cls.lam_min
+        lam_par = theta[1] * (cls.lam_max - cls.lam_min) + cls.lam_min
+        return (lam_perp, lam_par)
+
+    @classmethod
+    def to_theta(cls, lam_perp: float, lam_par: float) -> ArrayLike:
+        """Convert the lambda value to the parameter space theta."""
+        lam_perp = (lam_perp - cls.lam_min) / (cls.lam_max - cls.lam_min)
+        lam_par = (lam_par - cls.lam_min) / (cls.lam_max - cls.lam_min)
+        theta = jnp.array([lam_perp, lam_par])
+        theta = jax.scipy.stats.norm.ppf(theta)
+        return theta
+
+
+class NODDIKernel(SignalKernel):
+    theta_dim: int = 3
+
+    def __init__(self, fraction, lam_perp, lam_par):
+        self.fraction = fraction
+        self.lam_perp = lam_perp
+        self.lam_par = lam_par
+
+    @classmethod
+    def kernel_fn(
+        cls,
+        acq: acquisition_scheme,
+        mu: ArrayLike,
+        fraction,
+        lam_perp,
+        lam_par,
+        rng=None,
+    ) -> ArrayLike:
+        """Compute the log signal for given b-values and b-vectors."""
+        stick_signal = StickKernel.kernel_fn(acq, mu, lam_par=lam_par)
+        zeppelin_signal = ZeppelinKernel.kernel_fn(
+            acq, mu, lam_perp=lam_perp, lam_par=lam_par
+        )
+        return fraction * stick_signal + (1 - fraction) * zeppelin_signal
+
+    @classmethod
+    def to_params(cls, theta: ArrayLike) -> tuple:
+        """Convert the parameter space theta to the lambda value."""
+        fraction = theta[0]
+        lam_perp = theta[1]
+        lam_par = theta[2]
+
+        fraction = jax.scipy.stats.norm.cdf(fraction)
+        lam_perp_u = jax.scipy.stats.norm.cdf(lam_perp)
+        lam_par_u = jax.scipy.stats.norm.cdf(lam_par)
+
+        lam_perp_u = (
+            lam_perp_u * (Zeppelin.max_lam - Zeppelin.min_lam) + Zeppelin.min_lam
+        )
+        lam_par_u = lam_par_u * (Zeppelin.max_lam - Zeppelin.min_lam) + Zeppelin.min_lam
+
+        return fraction, lam_perp_u, lam_par_u
+
+    @classmethod
+    def to_theta(cls, fraction, lam_perp, lam_par) -> ArrayLike:
+        """Convert the lambda value to the parameter space theta."""
+        fraction = fraction
+        lam_perp = (lam_perp - Zeppelin.min_lam) / (Zeppelin.max_lam - Zeppelin.min_lam)
+        lam_par = (lam_par - Zeppelin.min_lam) / (Zeppelin.max_lam - Zeppelin.min_lam)
+        theta = jnp.array([fraction, lam_perp, lam_par])
+        theta = jax.scipy.stats.norm.ppf(theta)
+        return theta
+
+
+class SimpleSANDIKernel(SignalKernel):
+    theta_dim: int = 5
+
+    def __init__(self, fraction_in, fraction_ec, lam_par_in, lam_perp_ex, lam_par_ex):
+        self.fraction_in = fraction_in
+        self.fraction_ec = fraction_ec
+        self.lam_par_in = lam_par_in
+        self.lam_perp_ex = lam_perp_ex
+        self.lam_par_ex = lam_par_ex
+
+    @classmethod
+    def kernel_fn(
+        cls,
+        acq: acquisition_scheme,
+        mu: ArrayLike,
+        fraction_in,
+        fraction_ec,
+        lam_par_in,
+        lam_perp_ex,
+        lam_par_ex,
+        rng=None,
+    ) -> ArrayLike:
+        """Compute the log signal for given b-values and b-vectors."""
+        axon_signal_in = StickKernel.kernel_fn(acq, mu, lam_par=lam_par_in)
+        soma_signal = 1.0  # Dot
+
+        zeppelin_signal_ex = ZeppelinKernel.kernel_fn(
+            acq, mu, lam_par=lam_par_ex, lam_perp=lam_perp_ex
+        )
+        signal_in = fraction_in * axon_signal_in + (1 - fraction_in) * soma_signal
+        signal_ex = zeppelin_signal_ex
+        return (1 - fraction_ec) * signal_in + fraction_ec * signal_ex
+
+    @classmethod
+    def to_params(cls, theta: ArrayLike) -> tuple:
+        u_theta = jax.scipy.stats.norm.cdf(theta)
+        fraction_in = u_theta[0]
+        fraction_ec = u_theta[1]
+        lam_par_in = u_theta[2] * (Stick.max_lam - Stick.min_lam) + Stick.min_lam
+        lam_perp_ex = (
+            u_theta[3] * (Zeppelin.max_lam - Zeppelin.min_lam) + Zeppelin.min_lam
+        )
+        lam_par_ex = (
+            u_theta[4] * (Zeppelin.max_lam - Zeppelin.min_lam) + Zeppelin.min_lam
+        )
+        return fraction_in, fraction_ec, lam_par_in, lam_perp_ex, lam_par_ex
+
+    @classmethod
+    def to_theta(
+        cls, fraction_in, fraction_ec, lam_par_in, lam_perp_ex, lam_par_ex
+    ) -> ArrayLike:
+        fraction_in = (fraction_in - 0.0) / 1.0
+        fraction_ec = (fraction_ec - 0.0) / 1.0
+        lam_par_in = (lam_par_in - Stick.min_lam) / (Stick.max_lam - Stick.min_lam)
+        lam_perp_ex = (lam_perp_ex - Zeppelin.min_lam) / (
+            Zeppelin.max_lam - Zeppelin.min_lam
+        )
+        lam_par_ex = (lam_par_ex - Zeppelin.min_lam) / (
+            Zeppelin.max_lam - Zeppelin.min_lam
+        )
+        theta = jnp.array([
+            fraction_in,
+            fraction_ec,
+            lam_par_in,
+            lam_perp_ex,
+            lam_par_ex,
+        ])
+        theta = jax.scipy.stats.norm.ppf(theta)
+        return theta

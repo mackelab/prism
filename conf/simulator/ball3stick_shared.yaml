@@ -1,0 +1,5 @@
+defaults:
+  - acquisition: multi
+  - _self_
+
+model_class: prism.dmri.simulators.models.Ball3StickSharedDiffusivity

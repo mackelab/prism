@@ -1,0 +1,10 @@
+defaults:
+  - datastream
+  - _self_
+
+dataset:
+  simulation_batch_size: 8192
+  buffer_size: 2097152
+
+train_loader:
+  batch_size: 4096

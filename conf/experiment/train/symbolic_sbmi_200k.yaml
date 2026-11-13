@@ -1,0 +1,29 @@
+# @package _global_
+# Source c8e118b used an eight-hour H100 allocation with a 72-hour internal
+# limit. The existing reproduction uses a graceful eight-hour training stop;
+# equal wall time on another GPU is not an equal compute budget.
+defaults:
+  - symbolic_sbmi
+  - _self_
+
+run:
+  name: symbolic_sbmi_200k
+
+model:
+  model_selection_net:
+    params:
+      num_layers: 6
+  inference_net:
+    params:
+      num_layers: 6
+
+training:
+  max_train_steps: null
+  max_train_hours: 8
+  model_selection_warmup_steps: 0
+  model_selection_ramp_steps: 0
+  checkpoint:
+    max_checkpoints: 100
+  dataloader:
+    dataset:
+      dataset_size: 200_000

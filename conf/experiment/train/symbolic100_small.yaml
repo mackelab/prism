@@ -1,0 +1,11 @@
+# @package _global_
+# Width variant of symbolic100 (source symbolic*_v3_small): model_dim 64.
+defaults:
+  - symbolic100
+  - _self_
+
+run:
+  name: symbolic100_small
+
+model:
+  model_dim: 64

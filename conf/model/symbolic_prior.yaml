@@ -1,0 +1,18 @@
+defaults:
+  - symbolic_sbmi
+  - _self_
+
+name: prism.symbolic.paper.model.SymbolicPaperModelConfigMaskPriorAmortized
+model_dim: 128
+
+model_selection_net:
+  name: prism.symbolic.paper.autoregressive.SymbolicPaperModelSelectionAmortizedPriorConfig
+  params:
+    num_layers: 6
+    prior_params_embed_dim: 128
+    mask_prior_dim: 1
+    precondition_with_mask_prior: true
+
+inference_net:
+  params:
+    num_layers: 6

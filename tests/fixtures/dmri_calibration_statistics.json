@@ -1,0 +1,979 @@
+{
+  "author_commit": "f363a66b1a002c316024bf5c5d11233a90c5319f",
+  "author_file_sha256": "248906c82eb66a4a099a754fb1683331f34ffc0640b0724d10930ccdc54906c2",
+  "combined_evaluator_sha256": "ac34a9a3d4ce757c4021197acec193d2fce1c38714b6cfd2bb6f519146ae48b6",
+  "cases": [
+    {
+      "dimension": 3,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.1404402256011963,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.343137264251709,
+          null,
+          0.22549019753932953
+        ],
+        "theta_sum_pit": 0.2696399688720703
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.2032129019498825,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.44117647409439087,
+          null,
+          0.5196078419685364
+        ],
+        "theta_sum_pit": 0.47063690423965454
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.3113120198249817,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.46078431606292725,
+          null,
+          0.480392187833786
+        ],
+        "theta_sum_pit": 0.49834826588630676
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.3460269570350647,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.3214285969734192,
+          null,
+          0.392857164144516
+        ],
+        "theta_sum_pit": 0.3394027650356293
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.15809975564479828,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.4642857313156128,
+          null,
+          0.6071428656578064
+        ],
+        "theta_sum_pit": 0.5001773238182068
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.14298436045646667,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.6785714626312256,
+          null,
+          0.6071428656578064
+        ],
+        "theta_sum_pit": 0.6725543141365051
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.11424249410629272,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75
+        ],
+        "theta_sum_pit": 0.8758191466331482
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.4228978157043457,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75
+        ],
+        "theta_sum_pit": 0.0012410879135131836
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.28685927391052246,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.75,
+          null,
+          0.25
+        ],
+        "theta_sum_pit": 0.20788007974624634
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 0,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.27235832810401917,
+        "theta_sum_pit": 0.42160356044769287
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 18,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.13397914171218872,
+        "theta_sum_pit": 0.3865446150302887
+      }
+    },
+    {
+      "dimension": 3,
+      "seed": 91,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.24557794630527496,
+        "theta_sum_pit": 0.315743088722229
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.1006392240524292,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.343137264251709,
+          null,
+          0.22549019753932953,
+          null,
+          0.44117647409439087,
+          null,
+          0.46078431606292725,
+          null,
+          0.4215686321258545,
+          null,
+          0.3235294222831726
+        ],
+        "theta_sum_pit": 0.21081644296646118
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.1285860389471054,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.44117647409439087,
+          null,
+          0.5196078419685364,
+          null,
+          0.46078431606292725,
+          null,
+          0.38235294818878174,
+          null,
+          0.44117647409439087,
+          null,
+          0.5588235259056091
+        ],
+        "theta_sum_pit": 0.4314212203025818
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.18693391978740692,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.46078431606292725,
+          null,
+          0.44117647409439087,
+          null,
+          0.343137264251709,
+          null,
+          0.480392187833786,
+          null,
+          0.5588235259056091,
+          null,
+          0.5392156839370728
+        ],
+        "theta_sum_pit": 0.4003090262413025
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.0682491660118103,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.3214285969734192,
+          null,
+          0.392857164144516,
+          null,
+          0.4642857313156128,
+          null,
+          0.535714328289032,
+          null,
+          0.392857164144516,
+          null,
+          0.392857164144516
+        ],
+        "theta_sum_pit": 0.3394027650356293
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.10254420340061188,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.4642857313156128,
+          null,
+          0.6071428656578064,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.6071428656578064,
+          null,
+          0.4642857313156128
+        ],
+        "theta_sum_pit": 0.3573201894760132
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.19853992760181427,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.6785714626312256,
+          null,
+          0.535714328289032,
+          null,
+          0.25,
+          null,
+          0.392857164144516,
+          null,
+          0.4642857313156128,
+          null,
+          0.535714328289032
+        ],
+        "theta_sum_pit": 0.38684001564979553
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.11424249410629272,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.25
+        ],
+        "theta_sum_pit": 0.3758191466331482
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.4228978157043457,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.25
+        ],
+        "theta_sum_pit": 0.0012410879135131836
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.28685927391052246,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "theta_pit": [
+          0.75,
+          null,
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25
+        ],
+        "theta_sum_pit": 0.7078800797462463
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 0,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.38346943259239197,
+        "theta_sum_pit": 0.5644606947898865
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 18,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.13397914171218872,
+        "theta_sum_pit": 0.3865446150302887
+      }
+    },
+    {
+      "dimension": 11,
+      "seed": 91,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.24557794630527496,
+        "theta_sum_pit": 0.315743088722229
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.15536560118198395,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.343137264251709,
+          null,
+          0.22549019753932953,
+          null,
+          0.44117647409439087,
+          null,
+          0.46078431606292725,
+          null,
+          0.4019607901573181,
+          null,
+          0.3235294222831726,
+          null
+        ],
+        "theta_sum_pit": 0.21081644296646118
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.2032129019498825,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.44117647409439087,
+          null,
+          0.5196078419685364,
+          null,
+          0.46078431606292725,
+          null,
+          0.38235294818878174,
+          null,
+          0.44117647409439087,
+          null,
+          0.5588235259056091,
+          null
+        ],
+        "theta_sum_pit": 0.4314212203025818
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 200,
+      "theta_samples": 50,
+      "expected": {
+        "model_pit": 0.22175979614257812,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.46078431606292725,
+          null,
+          0.44117647409439087,
+          null,
+          0.343137264251709,
+          null,
+          0.480392187833786,
+          null,
+          0.5588235259056091,
+          null,
+          0.5,
+          null
+        ],
+        "theta_sum_pit": 0.4003090262413025
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.2349158376455307,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.3214285969734192,
+          null,
+          0.392857164144516,
+          null,
+          0.4642857313156128,
+          null,
+          0.535714328289032,
+          null,
+          0.392857164144516,
+          null,
+          0.392857164144516,
+          null
+        ],
+        "theta_sum_pit": 0.3394027650356293
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.3803219795227051,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.4642857313156128,
+          null,
+          0.6071428656578064,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.6071428656578064,
+          null,
+          0.4642857313156128,
+          null
+        ],
+        "theta_sum_pit": 0.3573201894760132
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.14298436045646667,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.6785714626312256,
+          null,
+          0.535714328289032,
+          null,
+          0.25,
+          null,
+          0.392857164144516,
+          null,
+          0.4642857313156128,
+          null,
+          0.535714328289032,
+          null
+        ],
+        "theta_sum_pit": 0.38684001564979553
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 0,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.6142424941062927,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.25,
+          null
+        ],
+        "theta_sum_pit": 0.3758191466331482
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 18,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.4228978157043457,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25,
+          null,
+          0.25,
+          null,
+          0.25,
+          null
+        ],
+        "theta_sum_pit": 0.0012410879135131836
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 91,
+      "source_keys": false,
+      "mask_samples": 1,
+      "theta_samples": 1,
+      "expected": {
+        "model_pit": 0.28685927391052246,
+        "theta_mask": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "theta_pit": [
+          0.75,
+          null,
+          0.25,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.75,
+          null,
+          0.25,
+          null
+        ],
+        "theta_sum_pit": 0.7078800797462463
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 0,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.43902498483657837,
+        "theta_sum_pit": 0.5644606947898865
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 18,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.24509024620056152,
+        "theta_sum_pit": 0.3865446150302887
+      }
+    },
+    {
+      "dimension": 12,
+      "seed": 91,
+      "source_keys": true,
+      "mask_samples": 17,
+      "theta_samples": 13,
+      "expected": {
+        "model_pit": 0.19002239406108856,
+        "theta_sum_pit": 0.315743088722229
+      }
+    }
+  ]
+}

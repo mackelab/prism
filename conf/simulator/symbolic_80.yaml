@@ -1,0 +1,5 @@
+defaults:
+  - symbolic_50
+  - _self_
+
+model_class: prism.symbolic.paper.model_specs.SymbolicModelV80

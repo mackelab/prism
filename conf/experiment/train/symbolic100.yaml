@@ -1,0 +1,9 @@
+# @package _global_
+# The source experiment symbolic100_v3 (continuation settings are not reproduced; training starts fresh).
+defaults:
+  - symbolic50
+  - override /simulator: symbolic_100
+  - _self_
+
+run:
+  name: symbolic100

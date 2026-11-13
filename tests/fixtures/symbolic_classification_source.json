@@ -1,0 +1,15 @@
+{
+  "num_samples": 480,
+  "num_classes": 12,
+  "top1_micro": 0.7958333333333333,
+  "top1_macro": 0.7958333333333333,
+  "top5_micro": 0.98125,
+  "top5_macro": 1.0,
+  "macro_precision": 0.7978537650604597,
+  "macro_recall": 0.7958333333333333,
+  "macro_f1": 0.7946053285917377,
+  "weighted_f1": 0.7946053285917376,
+  "support_min": 40,
+  "support_max": 40,
+  "support_mean": 40.0
+}

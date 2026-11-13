@@ -1,0 +1,110 @@
+{
+  "source_commit": "c8e118b8bd557f2b001812f00af982b136f0d793",
+  "source_generator": "sbmi_pp/train/build_simulator.py:126-148",
+  "jax": "0.8.1",
+  "numpy": "2.5.3",
+  "seeds": [
+    0,
+    1,
+    7,
+    42
+  ],
+  "components": [
+    "Linear",
+    "Linear",
+    "Quadratic",
+    "ShiftedSquare",
+    "Cubic",
+    "Sinusoidal",
+    "Cosinusoidal",
+    "ConstantWide",
+    "ConstantPositive",
+    "TanhRight",
+    "TanhLeft",
+    "GaussianBump",
+    "GaussianWide",
+    "RampUp",
+    "RampDown",
+    "NoiseObserver",
+    "NoiseIncreasing",
+    "NoiseDecreasing",
+    "NoiseQuadratic",
+    "NoiseQuadraticDecreasing"
+  ],
+  "assets_sha256": {
+    "binary_model_0.npy": "555c6e4ccd34cbefca4933c8dc01df66669f203ad426d33409416a10f261e3a7",
+    "binary_model_1.npy": "c7549889204bc7128cf300e9ac623c4047159da005ad013f9227fed5240a8b75",
+    "binary_model_2.npy": "db2e3cfb3b4cab3a11975f9fa40f7a722a23f49ffd20e7745fdb44945982065b",
+    "binary_model_3.npy": "3b4714e605ee2323fe965b92e69e20a329085411722f831033ec38f3437c56bc",
+    "binary_model_4.npy": "83c0016a275411605d6b0700f343d6a5530b731a6bdf996e3f8c8895575ac645",
+    "binary_model_5.npy": "01254be96e6c2fb68dee6dde5f38395d118d5865cd468da5c79d323a922e3778",
+    "binary_model_6.npy": "049e0f577e0dbff251d88bfba5587479612accdc79dae37fff33e40ac1561872",
+    "binary_model_7.npy": "45920c6d4a571c24e6e15c190ec7404c275bead5aa30088ff66f3c409902de15",
+    "binary_model_8.npy": "ac47a023096633e2324fb8a72dffd8285de76e31e08e93cd68d6154258ff9888",
+    "binary_model_9.npy": "c12e47f6fb3c3947ae0c90a990c980aab49d3b77410b96542a8bbf534a0da125"
+  },
+  "comparisons": {
+    "theta": {
+      "shape": [
+        4,
+        28
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "model_mask": {
+      "shape": [
+        4,
+        20
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "x": {
+      "shape": [
+        4,
+        50,
+        10
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "param_low": {
+      "shape": [
+        28
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "param_high": {
+      "shape": [
+        28
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "component_signals": {
+      "shape": [
+        22,
+        500
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "theta_mask": {
+      "shape": [
+        22,
+        28
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    },
+    "log_likelihood": {
+      "shape": [
+        22
+      ],
+      "exact": true,
+      "max_abs_diff": 0.0
+    }
+  }
+}

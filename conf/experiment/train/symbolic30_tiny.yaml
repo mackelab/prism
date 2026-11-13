@@ -1,0 +1,11 @@
+# @package _global_
+# Width variant of symbolic30 (source symbolic*_v3_tiny): model_dim 32.
+defaults:
+  - symbolic30
+  - _self_
+
+run:
+  name: symbolic30_tiny
+
+model:
+  model_dim: 32

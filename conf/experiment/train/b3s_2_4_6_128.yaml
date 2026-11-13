@@ -1,0 +1,28 @@
+# @package _global_
+
+defaults:
+- _self_
+- override /simulator: ball3stick_shared
+- override /simulator/acquisition: multi
+- override /model: dmri
+- override /infrastructure/launcher: slurm
+- override /infrastructure/partition: h100_long
+run:
+  name: b3s_2_4_6_128
+
+# These fixed settings apply to both single runs and Hydra multiruns.
+model:
+  model_dim: 128
+  embedding_net:
+    params:
+      num_layers: 2
+  model_selection_net:
+    params:
+      num_layers: 4
+  inference_net:
+    params:
+      num_layers: 6
+
+training:
+  max_train_hours: 70
+  ema_decay: 0.9999

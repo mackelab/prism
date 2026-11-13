@@ -1,0 +1,12 @@
+name: prism.nn.embedding.TransformerEmbeddingConfig
+cls: prism.nn.embedding.TransformerEmbedding
+params:
+  input_dim: 2
+  num_layers: 1
+  num_heads: 2
+  widening_factor: 2
+  attn_size: 8
+  positional_encoding: false
+  dropout_rate: 0.0
+  out_norm: true
+  use_flash_attention: false

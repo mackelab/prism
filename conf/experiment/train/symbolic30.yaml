@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - symbolic50
+  - override /simulator: symbolic_30
+  - _self_
+
+run:
+  name: symbolic30

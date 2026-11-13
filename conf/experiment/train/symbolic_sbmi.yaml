@@ -1,0 +1,20 @@
+# @package _global_
+# Figure 4b settings from mackelab/sbmi_transformer_symbolic at c8e118b.
+# Tracking is opt-in: for W&B, set tracking.enabled=true and
+# tracking.wandb.entity/project explicitly.
+defaults:
+  - override /simulator: symbolic_sbmi
+  - override /model: symbolic_sbmi
+  - override /training: symbolic_sbmi
+  - override /infrastructure/launcher: slurm
+  - override /infrastructure/partition: a100
+
+run:
+  name: symbolic_sbmi
+  seed: 0
+
+tracking:
+  enabled: false
+  wandb:
+    project: sbmi_symbolic
+    entity: null
